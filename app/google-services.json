@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "580017158620",
+    "firebase_url": "https://uabv21.firebaseio.com",
+    "project_id": "uabv21",
+    "storage_bucket": "uabv21.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:580017158620:android:3f3331c22f31edb9",
+        "android_client_info": {
+          "package_name": "com.example.mmiazi.uabv21"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "580017158620-sot3gueq97dvekvaq9t1hffni23ps7vn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDUGufpduOv4vldnhIS89GPIU0woO7872E"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
