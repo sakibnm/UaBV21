@@ -1,14 +1,33 @@
 package com.example.mmiazi.uabv21;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.RatingBar;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 
 /**
@@ -28,6 +47,9 @@ public class Review2 extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    FirebaseStorage storage;
+    FirebaseDatabase database;
 
     private OnFragmentInteractionListener mListener;
 
@@ -60,6 +82,8 @@ public class Review2 extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        storage = FirebaseStorage.getInstance();
+        database= FirebaseDatabase.getInstance();
     }
 
     @Override
@@ -69,6 +93,60 @@ public class Review2 extends Fragment {
         final View rootview =  inflater.inflate(R.layout.fragment_review2, container, false);
 
         Button shareButton = rootview.findViewById(R.id.button_share2);
+        final ImageView profilePic = rootview.findViewById(R.id.iv_cad2_photo);
+//        RatingBar ratingBar = rootview.findViewById(R.id.ratingBar2);
+        TextView textProdName  = rootview.findViewById(R.id.tv_cad2);
+        final CheckBox checkName = rootview.findViewById(R.id.ctv_cad2_name);
+        CheckBox checkPhoto = rootview.findViewById(R.id.ctv_cad2_photo);
+        EditText reviewText = rootview.findViewById(R.id.ctv_cad2_review);
+
+        checkName.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(compoundButton.isChecked()){
+                    DatabaseReference databaseReference = database.getReference();
+                    DatabaseReference usernameRef = databaseReference.child("message/userName");
+                    if(usernameRef!=null)usernameRef.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            checkName.setText(dataSnapshot.getValue(String.class));
+                        }
+
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+
+                        }
+                    });
+                }else{
+                    checkName.setText("Share Name");
+                }
+            }
+        });
+
+        checkPhoto.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(compoundButton.isChecked()){
+                    StorageReference profilePicStorage = storage.getReference().child("photos/photo.jpg");
+
+                    final long One_MB = 1024*1024;
+                    profilePicStorage.getBytes(One_MB).addOnSuccessListener(new OnSuccessListener<byte[]>() {
+                        @Override
+                        public void onSuccess(byte[] bytes) {
+                            Bitmap bitmap = BitmapFactory.decodeByteArray(bytes,0,bytes.length);
+                            profilePic.setImageBitmap(bitmap);
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            e.printStackTrace();
+                        }
+                    });
+                }else{
+                    profilePic.setImageResource(R.drawable.user_photo_not_selected);
+                }
+            }
+        });
 
         shareButton.setOnClickListener(new View.OnClickListener() {
             @Override

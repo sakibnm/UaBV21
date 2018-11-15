@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="?attr/colorControlHighlight"
     tools:context=".Review1">
 
     <!-- TODO: Update blank fragment layout -->
@@ -11,10 +12,8 @@
         android:id="@+id/back_cad1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_margin="0dp"
+        android:background="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,8 +25,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:text="TextView"
+            android:text="@string/review_Name_1"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="22sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -64,12 +65,14 @@
             android:id="@+id/ctv_cad1_review"
             android:layout_width="247dp"
             android:layout_height="60dp"
+            android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
             android:ems="10"
             android:inputType="textMultiLine"
             app:layout_constraintBottom_toTopOf="@+id/cardView1"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/cardView2" />
 
         <android.support.v7.widget.CardView
             android:id="@+id/cardView1"
@@ -82,17 +85,18 @@
             android:innerRadius="0dp"
             android:shape="ring"
             android:thicknessRatio="2"
-            app:cardCornerRadius="35dp"
+            app:cardBackgroundColor="#ff5722"
+            app:cardCornerRadius="15dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/cardView2">
 
             <Button
                 android:id="@+id/button_share1"
-                style="@style/Widget.AppCompat.Button"
+                style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="?attr/colorError"
+                android:background="#ff5722"
                 android:text="Share"
                 android:textColor="@android:color/background_light"
                 tools:layout_editor_absoluteX="272dp" />
@@ -109,7 +113,7 @@
             android:innerRadius="0dp"
             android:shape="ring"
             android:thicknessRatio="2"
-            app:cardCornerRadius="35dp"
+            app:cardCornerRadius="15dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent">
 
@@ -121,6 +125,18 @@
                 android:src="@drawable/user_photo_not_selected" />
 
         </android.support.v7.widget.CardView>
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="320dp"
+            android:layout_height="184dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:src="@mipmap/ic_launcher_foreground"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ratingBar1" />
 
     </android.support.constraint.ConstraintLayout>
 
