@@ -40,35 +40,6 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_recAd2" />
 
         <android.support.v7.widget.CardView
-            android:id="@+id/cardView3"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            android:background="#ff5722"
-            android:innerRadius="0dp"
-            android:shape="ring"
-            android:thicknessRatio="2"
-            app:cardBackgroundColor="#ff5722"
-            app:cardCornerRadius="15dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/cardView4">
-
-            <Button
-                android:id="@+id/button_shareRec2"
-                style="@style/Widget.AppCompat.Button.Borderless"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#ff5722"
-                android:text="Share"
-                android:textColor="@android:color/background_light"
-                tools:layout_editor_absoluteX="272dp" />
-
-        </android.support.v7.widget.CardView>
-
-        <android.support.v7.widget.CardView
             android:id="@+id/cardView4"
             android:layout_width="90dp"
             android:layout_height="90dp"
@@ -107,22 +78,23 @@
             android:id="@+id/tv_adminRev2_Name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
             android:layout_marginStart="8dp"
             android:text="TextView"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="361dp" />
+            app:layout_constraintBottom_toTopOf="@+id/cardView4"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/admin2_review"
             android:layout_width="270dp"
             android:layout_height="56dp"
+            android:layout_marginBottom="16dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
             android:text="TextView"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/cardView4"
-            app:layout_constraintTop_toBottomOf="@+id/tv_adminRev2_Name" />
+            app:layout_constraintStart_toEndOf="@+id/cardView4" />
 
     </android.support.constraint.ConstraintLayout>
 
