@@ -92,13 +92,13 @@ public class Review2 extends Fragment {
         // Inflate the layout for this fragment
         final View rootview =  inflater.inflate(R.layout.fragment_review2, container, false);
 
-        Button shareButton = rootview.findViewById(R.id.button_share2);
+        Button shareButton2 = rootview.findViewById(R.id.button_share2);
         final ImageView profilePic = rootview.findViewById(R.id.iv_cad2_photo);
-//        RatingBar ratingBar = rootview.findViewById(R.id.ratingBar2);
+//        RatingBar ratingBar = rootview.findViewById(R.id.ra);
         TextView textProdName  = rootview.findViewById(R.id.tv_cad2);
         final CheckBox checkName = rootview.findViewById(R.id.ctv_cad2_name);
         CheckBox checkPhoto = rootview.findViewById(R.id.ctv_cad2_photo);
-        EditText reviewText = rootview.findViewById(R.id.ctv_cad2_review);
+        final EditText reviewText = rootview.findViewById(R.id.ctv_cad2_review);
 
         checkName.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -148,10 +148,17 @@ public class Review2 extends Fragment {
             }
         });
 
-        shareButton.setOnClickListener(new View.OnClickListener() {
+        shareButton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(rootview.getContext(),"Shared 2", Toast.LENGTH_SHORT).show();
+                DatabaseReference shareRef = database.getReference();
+                DatabaseReference ratingRef = shareRef.child("fromUser/review2/rating");
+                DatabaseReference commentRef = shareRef.child("fromUser/review2/comment");
+                DatabaseReference commandRef = shareRef.child("signalToAdmin/command");
+
+                String review = reviewText.getText().toString();
+                commentRef.setValue(review);
+                commandRef.setValue("advertised2");
             }
         });
 
