@@ -16,7 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ShareReview"></activity>
+        <activity android:name=".ShareReview" />
+        <activity android:name=".AdminAd1" />
+        <activity android:name=".AdminAd2"></activity>
     </application>
 
 </manifest>

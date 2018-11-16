@@ -109,7 +109,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
                         userSignUp(user);
                         Intent intent = new Intent(SignUp.this, ShareReview.class);
                         startActivity(intent);
-                        finish();
+
                     }
                 });
 
