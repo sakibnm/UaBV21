@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/colorControlHighlight"
     tools:context=".Review1">
 
     <!-- TODO: Update blank fragment layout -->
@@ -13,7 +12,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="0dp"
-        android:background="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -44,10 +42,11 @@
         <CheckBox
             android:id="@+id/ctv_cad1_name"
             android:layout_width="280dp"
-            android:layout_height="30dp"
-            android:layout_marginStart="4dp"
+            android:layout_height="26dp"
             android:layout_marginBottom="8dp"
+            android:layout_marginStart="4dp"
             android:text="Share Name"
+            android:textSize="20sp"
             app:layout_constraintBottom_toTopOf="@+id/ctv_cad1_photo"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -55,9 +54,10 @@
             android:id="@+id/ctv_cad1_photo"
             android:layout_width="280dp"
             android:layout_height="30dp"
-            android:layout_marginStart="4dp"
             android:layout_marginBottom="8dp"
+            android:layout_marginStart="4dp"
             android:text="Share Photo"
+            android:textSize="20sp"
             app:layout_constraintBottom_toTopOf="@+id/ctv_cad1_review"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -65,9 +65,9 @@
             android:id="@+id/ctv_cad1_review"
             android:layout_width="247dp"
             android:layout_height="60dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
             android:ems="10"
             android:inputType="textMultiLine"
             app:layout_constraintBottom_toTopOf="@+id/cardView1"
@@ -78,9 +78,9 @@
             android:id="@+id/cardView1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
             android:background="#ff5722"
             android:innerRadius="0dp"
             android:shape="ring"
@@ -108,8 +108,8 @@
             android:layout_width="90dp"
             android:layout_height="90dp"
             android:layout_centerHorizontal="true"
-            android:layout_marginStart="8dp"
             android:layout_marginBottom="8dp"
+            android:layout_marginStart="8dp"
             android:innerRadius="0dp"
             android:shape="ring"
             android:thicknessRatio="2"
@@ -128,12 +128,16 @@
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="320dp"
-            android:layout_height="184dp"
+            android:layout_width="280dp"
+            android:layout_height="210dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:src="@mipmap/ic_launcher_foreground"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/review1_image_foreground"
+            app:layout_constraintBottom_toTopOf="@+id/ctv_cad1_name"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ratingBar1" />

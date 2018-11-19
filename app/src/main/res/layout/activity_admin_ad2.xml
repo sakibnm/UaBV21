@@ -62,17 +62,31 @@
 
         </android.support.v7.widget.CardView>
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="320dp"
-            android:layout_height="184dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:src="@mipmap/admin2_foreground"
+        <android.support.v7.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:innerRadius="0dp"
+            android:shape="ring"
+            android:thicknessRatio="2"
+            app:cardCornerRadius="15dp"
+            app:layout_constraintBottom_toTopOf="@+id/tv_adminRev2_Name"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ratingBarRec2" />
+            app:layout_constraintTop_toBottomOf="@+id/ratingBarRec2">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="320dp"
+                android:layout_height="220dp"
+                android:layout_margin="0dp"
+                android:adjustViewBounds="true"
+                android:cropToPadding="false"
+                android:padding="0dp"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/admin2_foreground" />
+
+        </android.support.v7.widget.CardView>
+
 
         <TextView
             android:id="@+id/tv_adminRev2_Name"

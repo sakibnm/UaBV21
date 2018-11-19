@@ -97,7 +97,7 @@ public class Review2 extends Fragment {
 //        RatingBar ratingBar = rootview.findViewById(R.id.ra);
         TextView textProdName  = rootview.findViewById(R.id.tv_cad2);
         final CheckBox checkName = rootview.findViewById(R.id.ctv_cad2_name);
-        CheckBox checkPhoto = rootview.findViewById(R.id.ctv_cad2_photo);
+        final CheckBox checkPhoto = rootview.findViewById(R.id.ctv_cad2_photo);
         final EditText reviewText = rootview.findViewById(R.id.ctv_cad2_review);
 
         checkName.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -153,8 +153,21 @@ public class Review2 extends Fragment {
             public void onClick(View view) {
                 DatabaseReference shareRef = database.getReference();
                 DatabaseReference ratingRef = shareRef.child("fromUser/review2/rating");
+                DatabaseReference nameRef = shareRef.child("fromUser/review2/isNameShared");
+                DatabaseReference photoRef = shareRef.child("fromUser/review2/isPhotoShared");
                 DatabaseReference commentRef = shareRef.child("fromUser/review2/comment");
                 DatabaseReference commandRef = shareRef.child("signalToAdmin/command");
+
+                nameRef.setValue("false");
+                photoRef.setValue("false");
+
+                if(checkName.isChecked()){
+                    nameRef.setValue("true");
+                } else nameRef.setValue("false");
+
+                if(checkPhoto.isChecked()){
+                    photoRef.setValue("true");
+                }else photoRef.setValue("false");
 
                 String review = reviewText.getText().toString();
                 commentRef.setValue(review);
