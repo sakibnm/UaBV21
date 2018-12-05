@@ -41,7 +41,7 @@
 
         <android.support.v7.widget.CardView
             android:id="@+id/cardView4"
-            android:layout_width="90dp"
+            android:layout_width="80dp"
             android:layout_height="90dp"
             android:layout_centerHorizontal="true"
             android:layout_marginStart="8dp"
@@ -57,7 +57,8 @@
                 android:id="@+id/iv_cadRec1_photo"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scaleType="fitXY"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
                 android:src="@mipmap/admin_image_foreground" />
 
         </android.support.v7.widget.CardView>
@@ -78,9 +79,9 @@
                 android:layout_width="320dp"
                 android:layout_height="220dp"
                 android:layout_margin="0dp"
-                android:layout_marginEnd="0dp"
                 android:layout_marginStart="0dp"
                 android:layout_marginTop="0dp"
+                android:layout_marginEnd="0dp"
                 android:adjustViewBounds="true"
                 android:scaleType="centerCrop"
                 android:src="@mipmap/admin1_foreground" />
@@ -105,9 +106,9 @@
             android:id="@+id/admin1_review"
             android:layout_width="270dp"
             android:layout_height="56dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginStart="16dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginStart="4dp"
+            android:layout_marginBottom="16dp"
             android:text="TextView"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

@@ -7,14 +7,17 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -39,6 +42,8 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
     FirebaseDatabase database;
     FirebaseStorage storage;
     private static int CAM_REQ = 0x1111;
+    ProgressBar progressBar;
+    ConstraintLayout backAlert;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +58,8 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
         et_Email = findViewById(R.id.text_Email);
         createButton = findViewById(R.id.button_register);
         cancelButton = findViewById(R.id.button_cancel);
+        progressBar = findViewById(R.id.progressBar2);
+        backAlert = findViewById(R.id.backAlert);
 
         userPhoto.setOnClickListener(new TakePhoto());
         cancelButton.setOnClickListener(this);
@@ -85,6 +92,10 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
 
             }
             if(inputValid){
+                //ProgressBar..........
+                backAlert.setVisibility(View.VISIBLE);
+                progressBar.setVisibility(View.VISIBLE);
+
                 //Upload image....
                 Bitmap userPhotoBitmap = bitmap;
                 ByteArrayOutputStream stream = new ByteArrayOutputStream();
@@ -107,6 +118,9 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
 
                         user = new User(userName, email, "photos/user.png");
                         userSignUp(user);
+                        progressBar.setVisibility(View.GONE);
+                        backAlert.setVisibility(View.GONE);
+
                         Intent intent = new Intent(SignUp.this, ShareReview.class);
                         startActivity(intent);
 
